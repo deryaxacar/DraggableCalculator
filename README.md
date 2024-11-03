@@ -4,10 +4,9 @@
 
 Bu proje, kullanıcıların temel matematiksel işlemleri gerçekleştirmesine olanak tanıyan basit bir html-css ve javascript kullanılarak oluşturulmuş hesap makinesi uygulamasıdır. Kullanıcı dostu bir arayüze sahip olan bu hesap makinesi, sayıları girmeyi ve işlemleri yapmayı kolaylaştırır. Aynı zamanda sürüklenebilir özelliğe sahipir.
 
-
 ---
 
-![GIF](https://github.com/deryaxacar/DraggableCalculator/blob/main/cvid.gif)
+![GIF](https://github.com/deryaxacar/DraggableCalculator/blob/main/cvideo.gif)
 
 ---
 

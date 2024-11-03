@@ -6,7 +6,7 @@ Bu proje, kullanıcıların temel matematiksel işlemleri gerçekleştirmesine o
 
 ---
 
-![GIF](https://github.com/deryaxacar/DraggableCalculator/blob/main/cvideo.gif)
+![GIF](https://github.com/deryaxacar/DraggableCalculator/blob/main/cvid.gif)
 
 ---
 

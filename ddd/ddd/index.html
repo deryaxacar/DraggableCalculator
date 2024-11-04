@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="calculator" class="draggable" draggable="true" ondragstart="drag(event)">
+        <p class="icon" onmousedown="startDrag(event)" >•••</p>
+        <div class="header" onmousedown="startDrag(event)">
+            
+        </div>
+        <div>
+            <span type="text" id="result" value="0" readonly></span>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="appendToResult('7')">7</button>
+            <button class="btn" onclick="appendToResult('8')">8</button>
+            <button class="btn" onclick="appendToResult('9')">9</button>
+            <button class="btn, yellowbutton" onclick="appendToResult('/')">/</button>
+            <button class="btn" onclick="appendToResult('4')">4</button>
+            <button class="btn" onclick="appendToResult('5')">5</button>
+            <button class="btn" onclick="appendToResult('6')">6</button>
+            <button class="btn, yellowbutton" onclick="appendToResult('-')">-</button>
+            <button class="btn" onclick="appendToResult('1')">1</button>
+            <button class="btn" onclick="appendToResult('2')">2</button>
+            <button class="btn" onclick="appendToResult('3')">3</button>
+            <button class="btn, yellowbutton" onclick="appendToResult('*')">×</button>
+            <button class="btn, yellowbutton" onclick="clearResult()">C</button>
+            <button class="btn" onclick="appendToResult('0')">0</button>
+            <button class="btn, yellowbutton" onclick="calculateResult()">=</button>
+            <button class="btn, yellowbutton" onclick="appendToResult('+')">+</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

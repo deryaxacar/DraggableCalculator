@@ -1,0 +1,98 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #191919;
+}
+
+#calculator {
+    width: 200px;
+    height: auto;
+    border: 1px solid #505455;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Taşınabilir olması için absolute konumlandırma */
+    background-color: #292F2F;
+    padding: 3px;
+}
+
+.icon{
+    font-size: 30px;
+    color: #787979;
+    margin: 0px;
+    padding-left: 10px;
+}
+
+.header {
+    color: white;
+    background-color: #292F2F;
+    padding: 10px;
+    cursor: move; /* Taşınabilir olduğunu belirtmek için imleci değiştir */
+    text-align: center;
+}
+
+.yellowbutton{
+    border-radius: 100%;
+    background-color: #FF9503;
+}
+
+.yellowbutton:hover {
+    background-color: #fdb652;
+}
+.yellowbutton:active{
+    background-color: #FF9503;
+}
+
+.buttons {
+    display: grid;
+    padding: 3px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#result {
+    text-align: right; /* Metni sağa yasla */
+    font-size: 35px; /* Başlangıç font boyutu */
+    background-color: #292F2F;
+    color: #F1F5F4;
+    padding-right: 5px;
+    border: none; /* Kenar çizgisini kaldır */
+    display: block; /* Margin auto çalışabilmesi için */
+    overflow: hidden; /* Taşma durumunda içeriği gizle */
+    white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+    overflow-x: auto; /* Yatay taşma durumunda kaydırma çubuğu ekle */
+}
+
+/* Kaydırma çubuğunu ince yap */
+#result::-webkit-scrollbar {
+    height: 4px; /* Kaydırma çubuğu yüksekliği */
+}
+
+#result::-webkit-scrollbar-thumb {
+    background-color: #787979; /* Kaydırma çubuğunun rengi */
+    border-radius: 4px; /* Köşeleri yuvarla */
+}
+
+#result::-webkit-scrollbar-track {
+    background: transparent; /* Kaydırma çubuğunun arka planı */
+}
+
+.btn{
+    border-radius: 100%;
+}
+
+button {
+    color: #F1F5F4;
+    padding: 11px;
+    font-size: 18px;
+    border: none;
+    background-color: #515755;
+    cursor: pointer;
+    margin: 3px;
+}
+
+button:hover {
+    background-color: #787979;
+}
+
+button:active{
+    background-color: #292F2F;
+}

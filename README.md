@@ -1,5 +1,7 @@
+<!-- Project Logo or Image -->
 <div align="center">
-  <h2>Draggable Calculator</h2>
+  <h1>Draggable Calculator</h1>
+  <a target="blank"><img src="https://github.com/deryaxacar/DraggableCalculator/blob/main/html-css-js.png" height="110" width="110" /></a>
 </div>
 
 This project is a simple calculator application built using HTML, CSS, and JavaScript. It allows users to perform basic mathematical operations through a user-friendly interface. Additionally, the calculator window is **draggable**, making it more interactive.

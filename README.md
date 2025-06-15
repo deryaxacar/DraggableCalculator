@@ -1,8 +1,8 @@
 <div align="center">
-  <h2>Sürüklenebilir Hesap Makinesı</h2>
+  <h2>Draggable Calculator</h2>
 </div>
 
-Bu proje, kullanıcıların temel matematiksel işlemleri gerçekleştirmesine olanak tanıyan basit bir html-css ve javascript kullanılarak oluşturulmuş hesap makinesi uygulamasıdır. Kullanıcı dostu bir arayüze sahip olan bu hesap makinesi, sayıları girmeyi ve işlemleri yapmayı kolaylaştırır. Aynı zamanda sürüklenebilir özelliğe sahipir.
+This project is a simple calculator application built using HTML, CSS, and JavaScript. It allows users to perform basic mathematical operations through a user-friendly interface. Additionally, the calculator window is **draggable**, making it more interactive.
 
 ---
 
@@ -10,52 +10,52 @@ Bu proje, kullanıcıların temel matematiksel işlemleri gerçekleştirmesine o
 
 ---
 
+**Features**
 
-**Özellikler**
+- **Basic Operations**: Addition, subtraction, multiplication, and division.
+- **User Interface**: Clean and simple buttons for an intuitive experience.
+- **Draggable Window**: The calculator panel can be moved around by dragging.
+- **Clear Button**: "C" button clears the input field.
+- **Instant Calculation**: "=" button instantly calculates and displays the result.
 
-- **Temel İşlemler**: Toplama, çıkarma, çarpma ve bölme işlemleri.
-- **Kullanıcı Arayüzü**: Basit ve anlaşılır butonlar ile kullanıcı dostu bir tasarım.
-- **Sürüklenebilir Arayüz**: Hesap makinesi penceresi, kullanıcı tarafından sürüklenebilir.
-- **Temizleme Butonu**: Girdi alanını sıfırlamak için "C" butonu.
-- **Sonuç Hesaplama**: "=" butonu ile işlemlerin sonuçları anında hesaplanır.
+**File Structure**
 
-**Dosya Yapısı**
-
-- **index.html**: Uygulamanın ana HTML yapısını içerir.
-- **style.css**: Uygulamanın stil ve tasarımını tanımlar.
-- **script.js**: Uygulamanın işlevselliğini sağlayan JavaScript kodunu içerir.
+- **index.html**: Contains the main HTML structure of the app.
+- **style.css**: Defines the styling and layout.
+- **script.js**: Provides interactivity and calculator logic using JavaScript.
 
 ---
 
 <div align="center">
-  <h2>Fonksiyonlar</h2>
+  <h2>Functions</h2>
 </div>
 
 **`appendToResult(value)`**
-- **Açıklama**: Kullanıcıdan gelen sayıları veya işlemleri sonucu eklemek için kullanılır.
-- **Kullanım**: Buton tıklamalarıyla çağrılır. Örneğin, kullanıcı "7" butonuna bastığında `appendToResult('7')` çağrılır.
+- **Description**: Appends user input (numbers or operations) to the display.
+- **Usage**: Triggered by button clicks. For example, clicking the "7" button calls `appendToResult('7')`.
 
 ---
 
 ```js
 /**
- * @param {string} value - Eklenecek değer (sayı veya işlem).
+ * @param {string} value - The value to be added (number or operator).
  */
 function appendToResult(value) {
     console.log(resultElement.textContent);
     if (resultElement.textContent === '0') {
-        resultElement.textContent = value; // İlk değer '0' ise, yeni değeri yaz.
+        resultElement.textContent = value; // Replace initial '0' with new value.
     } else {
-        resultElement.textContent += value; // Aksi takdirde değeri ekle.
+        resultElement.textContent += value; // Append new value.
     }
 }
+
 ```
 
 ---
 
 **`clearResult()`**
-- **Açıklama**: Hesap makinesinin girdi alanını sıfırlamak için kullanılır.
-- **Kullanım**: "C" butonuna basıldığında çağrılır.
+- **Description**: Used to clear the calculator’s input/display field.
+- **Usage**: Triggered when the "C" button is clicked.
 
 ---
 
@@ -63,13 +63,14 @@ function appendToResult(value) {
 function clearResult() {
     resultElement.textContent = '0';
 }
+
 ```
 
 ---
 
 **`calculateResult()`**
-- **Açıklama**: Girdi alanındaki matematiksel ifadeyi hesaplar ve sonucu görüntüler.
-- **Kullanım**: "=" butonuna basıldığında çağrılır. `eval()` fonksiyonu ile işlem gerçekleştirilir.
+- **Description**: Calculates the mathematical expression in the input field and displays the result.
+- **Usage**: Triggered when the "=" button is clicked. The calculation is performed using the `eval()` function.
 
 ---
 
@@ -78,61 +79,62 @@ function calculateResult() {
     try {
         resultElement.textContent = eval(resultElement.textContent) || '';
     } catch (error) {
-        resultElement.textContent = "error"; // Hata durumunda 'error' mesajı göster.
+        resultElement.textContent = "error"; // Displays 'error' message in case of a failure.
     }
 }
+
 ```
 
 ---
 
 **`startDrag(e)`**
-- **Açıklama**: Hesap makinesinin sürüklenebilmesini sağlamak için kullanılır. Kullanıcı fareyi tıkladığında bu fonksiyon çalışır.
-- **Kullanım**: Hesap makinesinin başlık kısmına tıklanarak sürüklendiğinde çağrılır.
+- **Description**: Enables the calculator to be dragged by the user. This function is triggered when the user clicks on the calculator’s header.
+- **Usage**: Called when the user clicks and drags the header area of the calculator.
 
 ---
 
 ```js
-
 /**
- * @param {MouseEvent} e - Fare tıklama olayından gelen olay nesnesi.
+ * @param {MouseEvent} e - The mouse click event object.
  */
 function startDrag(e) {
-    // Hesap makinesinin sol üst köşesinin fare tıklama noktasına olan
-    // mesafesini hesapla, böylece sürükleme sırasında doğru pozisyon korunur.
+    // Calculate the distance between the mouse click point
+    // and the top-left corner of the calculator to maintain accurate positioning during drag.
     let offsetX = e.clientX - calculator.getBoundingClientRect().left;
     let offsetY = e.clientY - calculator.getBoundingClientRect().top;
 
     /**
-     * Kullanıcı fareyi hareket ettirdiğinde çalışacak fonksiyon.
-     * Hesap makinesinin konumunu günceller.
+     * Function that runs as the user moves the mouse.
+     * Updates the position of the calculator.
      * 
-     * @param {MouseEvent} event - Fare hareketi olayından gelen olay nesnesi.
+     * @param {MouseEvent} event - The mousemove event object.
      */
     function dragMove(event) {
-        // Hesap makinesinin yeni konumunu ayarla.
+        // Set the new position of the calculator.
         calculator.style.left = (event.clientX - offsetX) + 'px';
         calculator.style.top = (event.clientY - offsetY) + 'px';
     }
 
     /**
-     * Kullanıcı fareyi bıraktığında çalışacak fonksiyon.
-     * Sürükleme işlemini sonlandırır ve ilgili olay dinleyicilerini kaldırır.
+     * Function that runs when the user releases the mouse.
+     * Ends the dragging action and removes event listeners.
      */
     function dragEnd() {
         document.removeEventListener('mousemove', dragMove);
         document.removeEventListener('mouseup', dragEnd);
     }
 
-    // Fare hareket etmeye başladığında dragMove fonksiyonunu çağır,
-    // fare bırakıldığında ise dragEnd fonksiyonunu çağır.
+    // Start listening for mouse movements and call dragMove.
+    // Stop listening when the mouse button is released.
     document.addEventListener('mousemove', dragMove);
     document.addEventListener('mouseup', dragEnd);
 }
+
 
 ```
 
 ---
 
-Bu readme dosyası Derya ACAR tarafından hazırlanmıştır.
+This README file was prepared by Derya ACAR.
 
 ---
